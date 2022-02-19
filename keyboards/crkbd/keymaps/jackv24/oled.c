@@ -1,6 +1,8 @@
 // From: https://github.com/drcforbin/keyboards/blob/master/crkbd/keymap.c
 
 #include QMK_KEYBOARD_H
+#include "manna-harbour_miryoku.h"
+
 #include "oled.h"
 
 // forwards
@@ -98,33 +100,37 @@ uint8_t render_layer_state(void) {
     uint8_t len = 0;
     oled_write_P(PSTR("Layer: "), false);
     switch (layer_state) {
-        case 0:
+        case BASE:
             oled_write_P(PSTR("BASE"), false);
             len = 4;
             break;
-        case 1 << 2:
+        case 1 << MEDIA:
             oled_write_P(PSTR("MEDIA"), false);
             len = 5;
             break;
-        case 1 << 3:
+        case 1 << NAV:
             oled_write_P(PSTR("NAV"), false);
             len = 3;
             break;
-        case 1 << 4:
+        case 1 << MOUSE:
             oled_write_P(PSTR("MOUSE"), false);
             len = 5;
             break;
-        case 1 << 5:
-            oled_write_P(PSTR("SYMBOL"), false);
-            len = 6;
+        case 1 << SYM:
+            oled_write_P(PSTR("SYM"), false);
+            len = 3;
             break;
-        case 1 << 6:
+        case 1 << NUM:
             oled_write_P(PSTR("NUM"), false);
             len = 3;
             break;
-        case 1 << 7:
-            oled_write_P(PSTR("Fun"), false);
+        case 1 << FUN:
+            oled_write_P(PSTR("FUN"), false);
             len = 3;
+            break;
+        case 1 << GAME:
+            oled_write_P(PSTR("GAME"), false);
+            len = 4;
             break;
         default:
             oled_write_P(PSTR("UNKNOWN"), false);

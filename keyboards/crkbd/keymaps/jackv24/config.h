@@ -1,10 +1,11 @@
 #pragma once
 
-//#define USE_MATRIX_I2C
-
 #define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
+
+#define OLED_FONT_H "keyboards/crkbd/keymaps/jackv24/glcdfont.c"
+#define OLED_DISABLE_TIMEOUT
+#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_OLED_ENABLE
 
 // Copyright 2019 Manna Harbour
 // https://github.com/manna-harbour/miryoku
@@ -22,12 +23,37 @@
 )\
 LAYOUT_split_3x6_3(\
 KC_NO, K00,   K01,   K02,   K03,   K04,          K05,   K06,   K07,   K08,   K09,   KC_NO,\
-KC_NO, K10,   K11,   K12,   K13,   K14,          K15,   K16,   K17,   K18,   K19,   KC_NO,\
+TG(GAME), K10,   K11,   K12,   K13,   K14,          K15,   K16,   K17,   K18,   K19,   KC_NO,\
 KC_NO, K20,   K21,   K22,   K23,   K24,          K25,   K26,   K27,   K28,   K29,   KC_NO,\
                      K32,   K33,   K34,          K35,   K36,   K37\
 )
 
-#define OLED_FONT_H "keyboards/crkbd/keymaps/jackv24/glcdfont.c"
-#define OLED_DISABLE_TIMEOUT
-#define SPLIT_LAYER_STATE_ENABLE
-#define SPLIT_OLED_ENABLE
+// default but used in macros
+#undef TAPPING_TERM
+#define TAPPING_TERM 200
+
+// Prevent normal rollover on alphas from accidentally triggering mods.
+#define IGNORE_MOD_TAP_INTERRUPT
+
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+#define TAPPING_FORCE_HOLD
+
+// Auto Shift
+#define NO_AUTO_SHIFT_ALPHA
+#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+#define AUTO_SHIFT_NO_SETUP
+
+// Recommended for heavy chording.
+#define QMK_KEYS_PER_SCAN 4
+
+// Mouse key speed and acceleration.
+#undef MOUSEKEY_DELAY
+#define MOUSEKEY_DELAY          0
+#undef MOUSEKEY_INTERVAL
+#define MOUSEKEY_INTERVAL       16
+#undef MOUSEKEY_WHEEL_DELAY
+#define MOUSEKEY_WHEEL_DELAY    0
+#undef MOUSEKEY_MAX_SPEED
+#define MOUSEKEY_MAX_SPEED      6
+#undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_TIME_TO_MAX    64
