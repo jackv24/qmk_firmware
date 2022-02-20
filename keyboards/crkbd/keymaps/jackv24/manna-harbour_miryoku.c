@@ -227,9 +227,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     U_NP,    U_NP,    KC_BTN2, KC_BTN3, KC_BTN1, KC_BTN1, KC_BTN3, KC_BTN2, U_NP,    U_NP
   ),
   [GAME] = LAYOUT_miryoku(
-    KC_NO,   KC_NO,  KC_NO,  KC_NO,   KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-    KC_LSFT, KC_A,   KC_W,   KC_D,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-    KC_NO,   KC_NO,  KC_S,   KC_NO,   KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,   KC_Q,   KC_W,   KC_E,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_LSFT, KC_A,   KC_S,   KC_D,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,   KC_NO,  KC_C,  KC_NO,   KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,   KC_NO,  KC_ESC, KC_LCTL, KC_SPC, KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO
   )
 };
