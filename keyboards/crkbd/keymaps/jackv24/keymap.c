@@ -24,3 +24,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 //#endif // OLED_ENABLE
+
+void suspend_power_down_user(void) {
+    oled_off();
+}
