@@ -175,7 +175,7 @@ void render_status_right(void) {
 
 void render_frame(void) {
     // no animation for right side
-    if (!is_keyboard_master()) {
+    if (!is_keyboard_left()) {
         return;
     }
 
@@ -218,7 +218,9 @@ bool oled_task_user(void) {
         } else {
             oled_on();
         }
+    }
 
+    if (is_keyboard_left()) {
         render_status_left();
     } else {
         render_status_right();
@@ -235,7 +237,7 @@ bool oled_task_user(void) {
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     anim_timer = timer_read();
-    if (is_keyboard_master()) {
+    if (is_keyboard_left()) {
         return rotation;
     }  else {
         return OLED_ROTATION_180;
