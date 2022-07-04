@@ -226,10 +226,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     U_UND,   U_CUT,   U_CPY,   U_PST,   U_RDO,   U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND,
     U_NP,    U_NP,    KC_BTN2, KC_BTN3, KC_BTN1, KC_BTN1, KC_BTN3, KC_BTN2, U_NP,    U_NP
   ),
-  [GAME] = LAYOUT_miryoku(
-    KC_TAB,  KC_Q,   KC_W,   KC_E,    KC_R,   KC_NO,  KC_NO,   KC_UP,   KC_NO,  KC_NO,
-    KC_LSFT, KC_A,   KC_S,   KC_D,    KC_F,   KC_NO,  KC_LEFT, KC_DOWN, KC_RIGHT,  KC_NO,
+  [G_FPS] = LAYOUT_miryoku(
+    KC_TAB,  KC_Q,   KC_W,   KC_E,    KC_R,   KC_NO,  KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_LSFT, KC_A,   KC_S,   KC_D,    KC_F,   KC_NO,  KC_NO,   KC_NO,   KC_NO,  KC_NO,
     KC_Z,    KC_X,   KC_C,   KC_V,    KC_I,   KC_NO,  KC_NO,   KC_NO,   KC_NO,  KC_NO,
     KC_NO,   KC_NO,  KC_ESC, KC_SPC, KC_LCTL, KC_NO,  KC_NO,   KC_NO,   KC_NO,  KC_NO
+  ),
+  [G_2D] = LAYOUT_miryoku(
+    KC_Q,    KC_W,   KC_E,   KC_R,    KC_T,   KC_NO,  KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_A,    KC_S,   KC_D,   KC_F,    KC_G,   KC_NO,  KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,
+    KC_Z,    KC_X,   KC_C,   KC_V,    KC_B,   KC_NO,  KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    U_NP,    U_NP,   KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS, U_NP,   U_NP
   )
 };

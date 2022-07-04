@@ -104,6 +104,10 @@ uint8_t render_layer_state(void) {
             oled_write_P(PSTR("BASE"), false);
             len = 4;
             break;
+        case 1 << BUTTON:
+            oled_write_P(PSTR("BUTTON"), false);
+            len = 6;
+            break;
         case 1 << MEDIA:
             oled_write_P(PSTR("MEDIA"), false);
             len = 5;
@@ -128,13 +132,17 @@ uint8_t render_layer_state(void) {
             oled_write_P(PSTR("FUN"), false);
             len = 3;
             break;
-        case 1 << GAME:
-            oled_write_P(PSTR("GAME"), false);
+        case 1 << G_FPS:
+            oled_write_P(PSTR("G_FPS"), false);
+            len = 5;
+            break;
+        case 1 << G_2D:
+            oled_write_P(PSTR("G_2D"), false);
             len = 4;
             break;
         default:
             oled_write_P(PSTR("UNKNOWN"), false);
-            len = 8;
+            len = 7;
             break;
     }
     return len;
@@ -149,7 +157,7 @@ void render_mod_status(uint8_t modifiers) {
     //oled_write_char('\n', false);
 }
 
-void render_status_left(void) {
+void render_status_master(void) {
     uint8_t len = render_layer_state();
     uint8_t t = 6 - len;
     if (t > len) {
@@ -163,7 +171,7 @@ void render_status_left(void) {
     render_mod_status(get_mods() | get_oneshot_mods());
 }
 
-void render_status_right(void) {
+void render_status_slave(void) {
     // draw the logo
     oled_write_P(corne_logo, false);
 
@@ -174,8 +182,8 @@ void render_status_right(void) {
 }
 
 void render_frame(void) {
-    // no animation for right side
-    if (!is_keyboard_left()) {
+    // no animation for master side
+    if (!is_keyboard_master()) {
         return;
     }
 
@@ -218,12 +226,10 @@ bool oled_task_user(void) {
         } else {
             oled_on();
         }
-    }
 
-    if (is_keyboard_left()) {
-        render_status_left();
+        render_status_master();
     } else {
-        render_status_right();
+        render_status_slave();
     }
 
     // time for the next frame?
