@@ -13,7 +13,7 @@ SRC	+= oled.c
 
 MOUSEKEY_ENABLE = yes # Mouse keys
 EXTRAKEY_ENABLE = yes # Audio control and System control
-AUTO_SHIFT_ENABLE = yes # Auto Shift
+AUTO_SHIFT_ENABLE = no # Auto Shift
 
 SRC += manna-harbour_miryoku.c # keymap
 

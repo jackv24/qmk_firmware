@@ -3,7 +3,6 @@
 #define MASTER_RIGHT
 
 #define OLED_FONT_H "keyboards/crkbd/keymaps/jackv24/glcdfont.c"
-#define OLED_DISABLE_TIMEOUT
 #define SPLIT_LAYER_STATE_ENABLE
 #define SPLIT_OLED_ENABLE
 
